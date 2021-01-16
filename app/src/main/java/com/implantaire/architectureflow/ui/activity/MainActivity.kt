@@ -16,10 +16,10 @@ import com.implantaire.architectureflow.viewmodel.ProfileViewModel
 import com.implantaire.architectureflow.viewmodelfactory.ProfileViewModelFactory
 
 class MainActivity : AppCompatActivity() {
-    lateinit var binding:ActivityMainBinding
+    private lateinit var binding:ActivityMainBinding
     private lateinit var viewModel: ProfileViewModel
     private lateinit var adapter:ProfileListAdapter
-    var profileList = ArrayList<ProfileModel>()
+    private var profileList = ArrayList<ProfileModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)

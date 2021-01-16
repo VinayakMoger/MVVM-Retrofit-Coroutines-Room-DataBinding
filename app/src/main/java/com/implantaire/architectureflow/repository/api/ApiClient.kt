@@ -7,10 +7,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiClient {
-    var BASE_URL:String="https://api.github.com/"
+    //TODO Check Base URL before release
+    private var BASE_URL:String="https://api.github.com/"
 
     fun apiClient(): Retrofit {
-        val gson = GsonBuilder()
+        val gsonBuilder = GsonBuilder()
             .setLenient()
             .create()
         val interceptor = HttpLoggingInterceptor()
@@ -18,12 +19,11 @@ object ApiClient {
 
         val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
 
-        val retrofit = Retrofit.Builder()
+        return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .client(client)
-            .addConverterFactory(GsonConverterFactory.create(gson))
+            .addConverterFactory(GsonConverterFactory.create(gsonBuilder))
             .build()
-        return retrofit
 
     }
 }

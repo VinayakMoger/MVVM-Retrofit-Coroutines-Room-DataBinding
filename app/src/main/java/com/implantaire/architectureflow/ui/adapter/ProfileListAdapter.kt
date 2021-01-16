@@ -11,7 +11,7 @@ class ProfileListAdapter (listProfile: ArrayList<ProfileModel>) : RecyclerView.A
     var onItemClick: ((ProfileModel) -> Unit)? = null
 
 
-    inner class MyViewHolder(val binding: AdapterProfileBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class MyViewHolder(private val binding: AdapterProfileBinding) : RecyclerView.ViewHolder(binding.root) {
        fun bind(profileModel: ProfileModel) {
            with(binding) {
                profile = profileModel
